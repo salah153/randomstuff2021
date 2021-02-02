@@ -9,3 +9,10 @@ primes = dropall (from 2)
 
 from :: Int -> [Int]
 from x = x : from (x + 1)
+
+goodPrimesBuilder (a : b : c : xs)
+  | b * b > a * c = b : goodPrimesBuilder (b : c : xs)
+  | otherwise = goodPrimesBuilder (b : c : xs)
+
+goodPrimes :: [Int]
+goodPrimes = goodPrimesBuilder primes
