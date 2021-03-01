@@ -10,10 +10,12 @@ primes = dropall (from 2)
 from :: Int -> [Int]
 from x = x : from (x + 1)
 
-goodPrimesBuilder ::  [Int] -> [Int]
+goodPrimesBuilder :: [Int] -> [Int]
 goodPrimesBuilder (a : b : c : xs)
   | b * b > a * c = b : goodPrimesBuilder (b : c : xs)
   | otherwise = goodPrimesBuilder (b : c : xs)
 
 goodPrimes :: [Int]
 goodPrimes = goodPrimesBuilder primes
+
+--this is a teat
